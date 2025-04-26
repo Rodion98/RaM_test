@@ -36,6 +36,10 @@ class HiveService {
 
   List<CharacterHiveModel> get favoritesList => favorites.values.toList();
 
+  Set<int> get favoritesIds {
+    return favorites.values.map((e) => e.id!).toSet();
+  }
+
   // // home chats box
   // Future<void> addHomeChat(HomeChatsModel homeChatsModel) async {
   //   await homeChats.add(homeChatsModel);

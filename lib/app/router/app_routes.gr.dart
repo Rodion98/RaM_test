@@ -30,17 +30,10 @@ class BottomNavRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [CharactersScreen]
-class CharactersRoute extends PageRouteInfo<CharactersRouteArgs> {
-  CharactersRoute({
-    String? status,
-    String? gender,
-    List<PageRouteInfo>? children,
-  }) : super(
+class CharactersRoute extends PageRouteInfo<void> {
+  const CharactersRoute({List<PageRouteInfo>? children})
+      : super(
           CharactersRoute.name,
-          args: CharactersRouteArgs(
-            status: status,
-            gender: gender,
-          ),
           initialChildren: children,
         );
 
@@ -49,30 +42,9 @@ class CharactersRoute extends PageRouteInfo<CharactersRouteArgs> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      final args = data.argsAs<CharactersRouteArgs>(
-          orElse: () => const CharactersRouteArgs());
-      return CharactersScreen(
-        status: args.status,
-        gender: args.gender,
-      );
+      return const CharactersScreen();
     },
   );
-}
-
-class CharactersRouteArgs {
-  const CharactersRouteArgs({
-    this.status,
-    this.gender,
-  });
-
-  final String? status;
-
-  final String? gender;
-
-  @override
-  String toString() {
-    return 'CharactersRouteArgs{status: $status, gender: $gender}';
-  }
 }
 
 /// generated route for

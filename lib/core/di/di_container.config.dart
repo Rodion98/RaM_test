@@ -30,7 +30,10 @@ import '../../features/favorites/data/data_source/favorite_data_source.dart'
 import '../../features/favorites/data/repository/favorite_repo_impl.dart'
     as _i555;
 import '../../features/favorites/domain/repository/favorite_repo.dart' as _i712;
+import '../../features/favorites/domain/use_case/add_favorite.dart' as _i16;
+import '../../features/favorites/domain/use_case/favorite_ids.dart' as _i197;
 import '../../features/favorites/domain/use_case/fetch_favorites.dart' as _i833;
+import '../../features/favorites/domain/use_case/remove_favorite.dart' as _i80;
 import '../../features/favorites/presentation/bloc/favorites_bloc.dart'
     as _i429;
 import '../dio/dio_module.dart' as _i977;
@@ -68,10 +71,20 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i944.CharactersDataSource>(),
           gh<_i898.ResponseModelToEntityMapper>(),
         ));
+    gh.singleton<_i16.AddFavoriteUseCase>(
+        () => _i16.AddFavoriteUseCase(gh<_i712.FavoriteRepo>()));
     gh.singleton<_i833.FetchFavoritesUseCase>(
         () => _i833.FetchFavoritesUseCase(gh<_i712.FavoriteRepo>()));
+    gh.singleton<_i80.RemoveFavoriteUseCase>(
+        () => _i80.RemoveFavoriteUseCase(gh<_i712.FavoriteRepo>()));
+    gh.singleton<_i197.FavoriteIdsUseCase>(
+        () => _i197.FavoriteIdsUseCase(gh<_i712.FavoriteRepo>()));
     gh.singleton<_i429.FavoritesBloc>(() => _i429.FavoritesBloc(
-        fetchFavoritesUseCase: gh<_i833.FetchFavoritesUseCase>()));
+          gh<_i16.AddFavoriteUseCase>(),
+          gh<_i80.RemoveFavoriteUseCase>(),
+          gh<_i833.FetchFavoritesUseCase>(),
+          gh<_i197.FavoriteIdsUseCase>(),
+        ));
     gh.singleton<_i644.FetchCharatersUseCase>(
         () => _i644.FetchCharatersUseCase(gh<_i903.CharactersRepository>()));
     gh.singleton<_i91.CharactersBloc>(() => _i91.CharactersBloc(

@@ -4,4 +4,8 @@ import 'package:rick_and_morty_app/features/characters/domain/entity/character_e
 
 abstract interface class FavoriteRepo {
   Future<Either<Failure, List<CharacterEntity>>> fetchFavorites();
+  Future<Either<Failure, List<CharacterEntity>>> addFavorite(
+      CharacterEntity character);
+  Future<Either<Failure, List<CharacterEntity>>> removeFavorite(int id);
+  Future<Either<Failure, Set<int>>> favoriteIds();
 }

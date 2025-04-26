@@ -6,8 +6,8 @@ import 'package:rick_and_morty_app/core/error/exception_handler.dart';
 import 'package:rick_and_morty_app/core/error/failure.dart';
 import 'package:rick_and_morty_app/features/characters/domain/entity/character_entity.dart';
 import 'package:rick_and_morty_app/features/characters/domain/entity/filter_entity.dart';
-import 'package:rick_and_morty_app/features/characters/domain/entity/response_entity.dart';
 import 'package:rick_and_morty_app/features/characters/domain/use_case/characters_use_case.dart';
+import 'package:rick_and_morty_app/features/favorites/presentation/bloc/favorites_bloc.dart';
 
 part 'characters_bloc.freezed.dart';
 

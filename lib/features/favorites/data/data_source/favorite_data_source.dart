@@ -23,4 +23,8 @@ class FavoriteDataSource {
   List<CharacterHiveModel> getAllCharacters() {
     return _hiveService.favoritesList;
   }
+
+  Set<int> getFavotiteIds() {
+    return _hiveService.favoritesIds;
+  }
 }
